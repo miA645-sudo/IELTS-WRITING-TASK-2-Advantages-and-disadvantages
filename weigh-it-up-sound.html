@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weigh It Up! – Advantages vs Disadvantages essays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Lexend:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0F766E;--teal-t:#CCFBF1;--coral:#E4572E;--coral-d:#B93A16;--coral-t:#FDE2D9;
+  --gold:#F2B705;--gold-d:#8A6700;--gold-t:#FEF3C7;--cream:#FAF7F2;--ink:#1E293B;--muted:#64748B;
+  --navy:#1E3A5F;--line:#E6DCCB;--t:30px;--h:60px;--s:1;
+}
+body.big{--t:36px;--h:70px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#1E293B}
+body{font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.lx{font-family:'Lexend','Be Vietnam Pro',system-ui,sans-serif;font-weight:700}
+button{font-family:inherit;cursor:pointer;color:inherit}
+button:focus-visible{outline:4px solid var(--gold);outline-offset:3px}
+
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--s));
+  background:radial-gradient(#ECE4D6 1.4px,transparent 1.7px) 0 0/30px 30px var(--cream);overflow:hidden}
+
+/* ---------- slide frame ---------- */
+.slide{position:absolute;inset:0;padding:156px 80px 112px;display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .35s ease,visibility .35s;font-size:var(--t);line-height:1.4}
+.slide.active{opacity:1;visibility:visible;z-index:2}
+.head{position:absolute;top:22px;left:200px;right:590px}
+.tagline{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:28px;font-weight:600;color:var(--muted);min-height:42px;line-height:1.3}
+.xtag{background:var(--gold);color:var(--ink);padding:1px 16px;border-radius:999px;font-weight:700}
+.head h2{font-size:var(--h);line-height:1.08;margin-top:2px;letter-spacing:-.01em}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;gap:22px;overflow:auto;padding:16px;margin:-16px}
+.body::-webkit-scrollbar{width:10px}.body::-webkit-scrollbar-thumb{background:#D6CCBA;border-radius:10px}
+.inst{color:var(--muted);font-weight:600}
+.inst b{color:var(--ink)}
+.hint{display:inline-block;margin-left:10px;font-weight:400;color:var(--muted)}
+.ct{color:var(--teal)}.cc{color:var(--coral)}.cg{color:var(--gold-d)}
+.vi{color:var(--muted);font-style:italic}
+
+#corner{position:absolute;top:16px;left:44px;width:138px;z-index:6;transition:opacity .3s}
+#stage.on-title #corner{opacity:0}
+.mscale svg,#corner svg{width:100%;height:auto;display:block;overflow:visible}
+
+/* ---------- feedback ---------- */
+.ok{border-color:var(--teal)!important;box-shadow:0 0 0 3px var(--teal),0 0 32px 6px rgba(15,118,110,.38)!important}
+.mark{position:absolute;top:-12px;right:-10px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+  font-size:32px;font-weight:700;color:#fff;z-index:4;animation:pop .35s;pointer-events:none;line-height:1}
+.mark.y{background:var(--teal)}.mark.n{background:var(--coral)}
+.shake{animation:shake .45s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}40%{transform:translateX(10px)}60%{transform:translateX(-7px)}80%{transform:translateX(4px)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes blink{50%{opacity:.35}}
+
+/* ---------- shared bits ---------- */
+.card{position:relative;background:#fff;border:3px solid var(--line);border-radius:24px;padding:20px 24px;transition:box-shadow .3s,border-color .3s}
+.num{position:absolute;top:-14px;left:-12px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;
+  display:grid;place-items:center;font-family:'Lexend',sans-serif;font-size:24px;font-weight:700;z-index:2}
+.cb{font-size:.95em;font-weight:700;border:3px solid var(--line);background:var(--cream);border-radius:14px;padding:6px 20px;transition:border-color .15s,background .15s}
+.cb:hover{border-color:var(--ink)}
+.cb.ta{color:var(--teal)}.cb.co{color:var(--coral-d)}
+.cb.chosen{background:var(--ink);border-color:var(--ink);color:#fff}
+.kw{border-radius:8px;padding:0 3px;margin:0 -3px;transition:background .3s,color .3s}
+.lit .kw.a,.kw.a.on{background:var(--teal-t);color:var(--teal);font-weight:700}
+.lit .kw.d,.kw.d.on{background:var(--coral-t);color:var(--coral-d);font-weight:700}
+.lit .kw.o,.kw.o.on{background:var(--gold-t);font-weight:700}
+.goldnote{background:var(--gold-t);border:3px solid var(--gold);border-radius:22px;padding:16px 30px;font-size:1.13em;text-align:center}
+.qstrip{background:#fff;border-left:12px solid var(--gold);border-radius:14px;padding:12px 24px}
+
+/* ---------- book card ---------- */
+.book{display:flex;gap:44px;align-items:center;background:#FFFDF8;border:3px solid var(--line);border-left:18px solid var(--navy);
+  border-radius:28px;padding:34px 48px;box-shadow:0 10px 30px rgba(30,41,59,.07)}
+.bicon{width:170px;flex:none}.bicon svg{width:100%;height:auto;display:block}
+.binfo{min-width:0}
+.blabel{font-size:.95em;font-weight:700;color:var(--navy)}
+.bref{font-family:'Lexend',sans-serif;font-weight:700;font-size:2.9em;line-height:1.05;color:var(--navy)}
+.bref span{color:var(--muted);font-size:.7em}
+.binst{font-size:1.2em;margin:10px 0 18px}
+.tchip{font-size:.95em;font-weight:700;border:3px solid var(--gold);background:var(--gold-t);border-radius:999px;padding:8px 26px}
+.tchip:hover{background:var(--gold)}
+.book.slim{padding:16px 32px;gap:28px}
+.book.slim .bicon{width:84px}
+.book.slim .bref{font-size:1.6em}
+.book.slim .binst{font-size:1em;margin:0;flex:1}
+.book.slim .tchip{flex:none}
+
+/* answers */
+.answers{display:flex;flex-direction:column;gap:16px}
+.answers.row{flex-direction:row}.answers.row .ans{flex:1}
+.ans{display:flex;align-items:center;gap:20px;border:3px dashed #CBD5E1;border-radius:20px;padding:14px 26px;min-height:84px;font-size:1.13em;transition:background .3s,border-color .3s}
+.ans .n{flex:none;width:54px;height:54px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Lexend',sans-serif;font-weight:700;font-size:26px}
+.ans .txt{visibility:hidden;opacity:0;transition:opacity .4s}
+.ans.shown{border:3px solid var(--teal);background:var(--teal-t);animation:pop .4s}
+.ans.shown .txt{visibility:visible;opacity:1}
+
+/* ---------- title ---------- */
+.s-title{padding:70px 110px 120px}
+.title{display:grid;grid-template-columns:1fr 640px;align-items:center;gap:40px;height:100%}
+.kicker{font-size:30px;font-weight:600;color:var(--muted)}
+.t1{font-size:128px;white-space:nowrap;line-height:1;letter-spacing:-.03em;margin:18px 0 22px}
+.t2{font-family:'Lexend',sans-serif;font-weight:700;font-size:52px;line-height:1.15}
+.t3{display:inline-block;margin-top:40px;font-size:46px;font-weight:700;background:var(--gold);padding:10px 30px;border-radius:999px}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;flex:1;position:relative}
+.panel{border-radius:32px;padding:36px 44px;color:#fff;display:flex;flex-direction:column;gap:22px}
+.panel.pt{background:var(--teal)}.panel.pc{background:var(--coral)}
+.ptitle{font-family:'Lexend',sans-serif;font-weight:700;font-size:1.73em;line-height:1.1}
+.pq{background:rgba(255,255,255,.16);border-radius:18px;padding:16px 22px;font-size:1.13em;font-style:italic}
+.pdo{font-size:1.13em;font-weight:600}
+.pill{align-self:flex-start;margin-top:auto;background:#fff;color:var(--ink);font-weight:700;padding:8px 24px;border-radius:999px;font-size:1.07em}
+.vs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:112px;height:112px;border-radius:50%;background:var(--gold);
+  display:grid;place-items:center;font-family:'Lexend',sans-serif;font-weight:700;font-size:38px;border:6px solid var(--cream);z-index:2}
+
+/* ---------- Form A/B cards ---------- */
+.abgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 28px}
+.ab{display:flex;flex-direction:column;gap:8px}
+.ab .q{font-size:.95em;flex:1}
+.ab .res{font-weight:700;min-height:1.35em;font-size:.95em;color:var(--muted)}
+.ab.solved .res{color:var(--teal)}
+.ab .r1,.ab .r2{display:flex;gap:8px}
+.ab .r1 .cb{flex:1;font-family:'Lexend',sans-serif;font-size:1.2em;padding:4px}
+.ab .r2 .cb{font-size:.8em;padding:6px 8px;flex:1 1 auto;white-space:nowrap}
+.ab[data-stage="side"] .r1,.ab:not([data-stage="side"]) .r2,.ab.solved .r1,.ab.solved .r2{display:none}
+
+/* ---------- judge ---------- */
+.judge3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1}
+.jopt{position:relative;background:#fff;border:3px solid var(--line);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.jopt .mscale{width:270px}
+.jlab{font-family:'Lexend',sans-serif;font-weight:700;font-size:1.25em;line-height:1.2;display:flex;flex-direction:column}
+.jlab .gt{color:var(--muted)}
+.jnote{color:var(--muted)}
+.jmark{margin-top:auto;font-weight:700;padding:8px 24px;border-radius:999px;border:3px dashed #CBD5E1;color:transparent;transition:.3s}
+.jmark.shown.y{background:var(--teal);border:3px solid var(--teal);color:#fff;animation:pop .4s}
+.jmark.shown.n{background:var(--coral);border:3px solid var(--coral);color:#fff;animation:pop .4s}
+.tip{background:var(--gold-t);border:3px solid var(--gold);border-radius:22px;padding:14px 28px;font-size:1.07em;font-weight:600}
+
+/* ---------- direction ---------- */
+.dirwrap{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:center;flex:1}
+.dirwrap .cap{text-align:center;color:var(--teal);font-weight:700;margin-top:6px}
+.dir{display:grid;grid-template-columns:1fr 250px;gap:20px 24px}
+.dq{background:#fff;border:3px solid var(--line);border-radius:22px;padding:44px 36px;font-size:1.4em}
+.da{border-radius:22px;display:grid;place-items:center;font-family:'Lexend',sans-serif;font-weight:700;font-size:2.6em;border:3px dashed #CBD5E1;color:transparent;transition:.3s}
+.da.shown.yes{background:var(--teal);border:3px solid var(--teal);color:#fff;animation:pop .4s}
+.da.shown.no{background:var(--coral);border:3px solid var(--coral);color:#fff;animation:pop .4s}
+.fa,.fd{border-radius:8px;padding:0 6px;font-weight:700}
+.fa{animation:flashA 2.2s infinite}.fd{animation:flashD 2.2s infinite}
+@keyframes flashA{0%,100%{background:transparent;color:var(--teal)}45%,60%{background:var(--teal);color:#fff}}
+@keyframes flashD{0%,100%{background:transparent;color:var(--coral-d)}45%,60%{background:var(--coral);color:#fff}}
+
+/* ---------- YES/NO cards ---------- */
+.yngrid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px 28px}
+.yn{grid-column:span 2;display:flex;flex-direction:column;gap:8px;padding:16px 22px}
+.yn:nth-child(4){grid-column:2/span 2}
+.yn .q{font-size:.95em;font-weight:600}
+.yn .v{font-size:.95em;font-style:italic;background:var(--cream);border-radius:14px;padding:6px 14px}
+.yn .foot{display:flex;align-items:center;gap:12px;margin-top:auto}
+.yn .mscale{width:116px;flex:none}
+.yn .foot .cb{flex:1;font-family:'Lexend',sans-serif;font-size:1.1em;padding:6px}
+
+/* ---------- structure ---------- */
+.stack{display:flex;flex-direction:column;gap:14px;cursor:pointer}
+.blk{display:grid;grid-template-columns:290px 1fr 300px;align-items:stretch;border-radius:22px;overflow:hidden;min-height:112px;border:3px solid;
+  background:#fff;opacity:0;transform:translateY(24px);transition:opacity .45s,transform .45s}
+.blk.shown{opacity:1;transform:none}
+.blk .bl{display:flex;align-items:center;padding:0 28px;font-family:'Lexend',sans-serif;font-weight:700;font-size:1.2em;color:#fff}
+.blk .bc{display:flex;align-items:center;padding:12px 28px;font-size:1.07em}
+.blk .bs{display:flex;align-items:center;justify-content:flex-end;white-space:nowrap;padding:0 26px;color:var(--muted);font-weight:600}
+.blk.g{border-color:var(--gold)}.blk.g .bl{background:var(--gold);color:var(--ink)}
+.blk.c{border-color:var(--coral)}.blk.c .bl{background:var(--coral)}
+.blk.t{border-color:var(--teal)}.blk.t .bl{background:var(--teal)}
+.sfoot{text-align:center;font-size:1.07em;padding:14px;border-radius:20px;background:var(--ink);color:#fff;opacity:0;transition:opacity .45s}
+.sfoot.shown{opacity:1}
+
+/* ---------- editable boards ---------- */
+.board{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:260px}
+.col{border-radius:24px;border:3px solid;display:flex;flex-direction:column;overflow:hidden;background:#fff}
+.col h3{padding:10px 24px;color:#fff;font-size:1.13em}
+.col.t{border-color:var(--teal)}.col.t h3{background:var(--teal)}
+.col.c{border-color:var(--coral)}.col.c h3{background:var(--coral)}
+.ed{flex:1;padding:12px 26px;font-size:1.07em;outline:none;overflow:auto;cursor:text;min-height:1.6em}
+.ed:empty::before{content:attr(data-ph);color:#94A3B8}
+.ed:focus{box-shadow:inset 0 0 0 4px var(--gold-t)}
+.opline{display:flex;align-items:center;gap:16px;background:var(--gold-t);border:3px solid var(--gold);border-radius:20px;padding:10px 24px}
+.opline .ed{padding:4px 10px;background:rgba(255,255,255,.6);border-radius:12px}
+
+/* ---------- plan order ---------- */
+.order{display:grid;grid-template-columns:690px 1fr;gap:36px;flex:1;min-height:0}
+.tray{display:flex;flex-direction:column;gap:16px}
+.note{position:relative;background:#FFFBEA;border:3px solid #E9D9A6;border-radius:18px;padding:12px 18px 12px 72px;font-size:.95em;cursor:grab;
+  box-shadow:4px 5px 0 #E9D9A6;transition:transform .15s,outline-color .15s;user-select:none}
+.note .nl{position:absolute;left:16px;top:12px;width:42px;height:42px;border-radius:10px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
+.note.sel{outline:5px solid var(--gold);transform:rotate(-1.2deg) scale(1.02)}
+.pblocks{display:flex;flex-direction:column;gap:14px}
+.pb{position:relative;display:grid;grid-template-columns:200px 1fr;border:3px solid;border-radius:20px;min-height:140px;background:#fff;transition:background .2s,box-shadow .3s}
+.pb .pl{display:flex;align-items:center;padding:0 20px;font-family:'Lexend',sans-serif;font-weight:700;font-size:.95em;border-radius:16px 0 0 16px}
+.pb .pz{padding:10px;display:flex;align-items:center}
+.pb .pz .note{box-shadow:none;width:100%;cursor:default;outline:none;transform:none}
+.pb.g{border-color:var(--gold)}.pb.g .pl{background:var(--gold)}
+.pb.c{border-color:var(--coral)}.pb.c .pl{background:var(--coral);color:#fff}
+.pb.t{border-color:var(--teal)}.pb.t .pl{background:var(--teal);color:#fff}
+.pb.over{background:var(--gold-t)}
+
+/* ---------- phrase board ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pg{border-radius:22px;padding:12px 24px 14px;border:3px solid}
+.pg h3{font-size:.95em;margin-bottom:4px}
+.pg p{margin:4px 0;font-size:1.07em}
+.pg .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.pg.op{grid-column:1/-1;background:var(--gold-t);border-color:var(--gold)}.pg.op h3{color:var(--gold-d)}
+.pg.ad{background:var(--teal-t);border-color:var(--teal)}.pg.ad h3{color:var(--teal)}
+.pg.di{background:var(--coral-t);border-color:var(--coral)}.pg.di h3{color:var(--coral-d)}
+.pg.ex{background:#EEF2F6;border-color:#94A3B8}.pg.ex h3{color:var(--muted)}
+.pg.cn{grid-column:1/-1;background:#fff;border-color:var(--gold)}.pg.cn h3{color:var(--gold-d)}
+.wordbank{display:flex;gap:16px}
+.wordbank span{flex:1;text-align:center;border-radius:999px;padding:10px 20px;font-weight:700}
+.wbk-a{background:var(--teal);color:#fff}.wbk-d{background:var(--coral);color:#fff}
+
+/* ---------- groups ---------- */
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.grp{display:flex;flex-direction:column;gap:14px}
+.gh{border-radius:18px;padding:12px 22px;font-family:'Lexend',sans-serif;font-weight:700;font-size:1.13em;text-align:center}
+.grp.t .gh{background:var(--teal);color:#fff}.grp.g .gh{background:var(--gold)}.grp.c .gh{background:var(--coral);color:#fff}
+
+/* ---------- gap fill ---------- */
+.para{font-size:1.07em;line-height:2.05;background:#fff;border:3px solid var(--line);border-radius:24px;padding:22px 36px}
+.gap{display:inline-flex;align-items:baseline;gap:8px;min-width:250px;justify-content:center;font-size:1em;font-weight:700;border:0;
+  border-bottom:4px dashed var(--ink);background:var(--gold-t);border-radius:10px 10px 0 0;padding:0 14px;line-height:1.45;vertical-align:baseline;position:relative}
+.gap .gn{font-size:.75em;color:var(--muted)}
+.gap.right{background:var(--teal-t);border-bottom:4px solid var(--teal);color:var(--teal);cursor:default}
+.gap.wrong{background:var(--coral-t);border-bottom-color:var(--coral)}
+.gfoot{display:flex;align-items:center;gap:20px}
+.bank{display:flex;flex-wrap:wrap;gap:12px;flex:1}
+.chip{border:3px solid var(--ink);border-radius:999px;padding:4px 20px;font-weight:600;background:#fff;transition:opacity .2s}
+.chip.used{opacity:.3;text-decoration:line-through}
+.checkgaps{background:var(--teal);border-color:var(--teal);color:#fff;font-size:1em;padding:8px 30px}
+
+/* ---------- two cards ---------- */
+.co2{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1}
+.ccard{position:relative;background:#fff;border:3px solid var(--line);border-radius:24px;padding:24px 30px;display:flex;flex-direction:column;gap:8px}
+.ccard .mscale{position:absolute;top:14px;right:20px;width:110px}
+.ccard .lbl{font-size:.95em;font-weight:700;color:var(--muted);margin-top:6px}
+.ccard .ans{margin-top:auto}
+.ccard h3{font-size:1.13em;padding-right:120px}
+
+/* ---------- checklist ---------- */
+.ck{background:#fff;border:3px solid var(--gold);border-radius:26px;padding:24px 32px}
+.ck h3{font-size:1.33em;margin-bottom:14px}
+.ck ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ck li{display:flex;gap:16px;align-items:flex-start;font-size:1.07em}
+.ck li::before{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:28px;margin-top:-2px}
+.ck li.y::before{content:"✓";background:var(--teal)}
+.ck li.n::before{content:"✗";background:var(--coral)}
+.ck .avoid{font-weight:700;color:var(--coral-d);margin-top:8px}
+
+/* ---------- which is better ---------- */
+.pairs{display:flex;flex-direction:column;gap:14px}
+.pairh{font-family:'Lexend',sans-serif;font-weight:700;font-size:1em;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.wb{cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:16px 24px 16px 84px;font-size:.95em}
+.wb .wl{position:absolute;left:20px;top:16px;width:48px;height:48px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:'Lexend',sans-serif;font-weight:700}
+.wb:hover{border-color:#94A3B8}
+.tags{display:flex;gap:10px;flex-wrap:wrap;min-height:46px;margin-top:auto;visibility:hidden}
+.pair.solved .tags{visibility:visible;animation:pop .4s}
+.tg{background:var(--coral-t);color:var(--coral-d);border:2px solid var(--coral);border-radius:999px;padding:1px 16px;font-weight:700}
+.tg.good{background:var(--teal-t);color:var(--teal);border-color:var(--teal)}
+.pair.solved .wb:not([data-good]){border-color:var(--coral);background:#FFF8F5}
+
+/* ---------- your turn ---------- */
+.warnbar{background:var(--gold);border-radius:22px;padding:14px 30px;font-size:1.2em;font-weight:700;text-align:center}
+.warnbar .ct,.warnbar .cc{background:#fff;border-radius:10px;padding:0 10px}
+.yt{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;flex:1;min-height:0}
+.plan{display:flex;flex-direction:column;gap:12px}
+.prow{display:grid;grid-template-columns:400px 1fr;border:3px solid;border-radius:18px;overflow:hidden;background:#fff;flex:1;min-height:96px}
+.prow .pk{padding:8px 18px;font-family:'Lexend',sans-serif;font-weight:700;display:flex;flex-direction:column;justify-content:center;line-height:1.2}
+.prow .pk small{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:.88em;opacity:.85;margin-top:4px}
+.prow.g{border-color:var(--gold)}.prow.g .pk{background:var(--gold-t)}
+.prow.c{border-color:var(--coral)}.prow.c .pk{background:var(--coral-t)}
+.prow.t{border-color:var(--teal)}.prow.t .pk{background:var(--teal-t)}
+.cklist{background:#fff;border:3px solid var(--line);border-radius:24px;padding:18px 24px;display:flex;flex-direction:column;gap:10px}
+.cklist h3{font-size:1.07em}
+.tick{display:flex;align-items:center;gap:16px;text-align:left;background:var(--cream);border:3px solid var(--line);border-radius:16px;padding:8px 16px;font-size:1em;font-weight:600}
+.tick::before{content:"";flex:none;width:40px;height:40px;border-radius:10px;border:3px solid #94A3B8;background:#fff;display:grid;place-items:center;color:#fff;font-weight:700}
+.tick.ticked{background:var(--teal-t);border-color:var(--teal)}
+.tick.ticked::before{content:"✓";background:var(--teal);border-color:var(--teal)}
+
+/* ---------- essay x-ray ---------- */
+.layers{display:flex;gap:10px;flex-wrap:nowrap;align-items:center}
+.layer,.layers-all{font-size:.87em;font-weight:700;border:3px solid;border-radius:999px;padding:5px 16px;background:#fff;white-space:nowrap}
+.layer em{font-style:normal;display:none;margin-left:6px;opacity:.85}
+.layer.on em{display:inline}
+.layer[data-l=op]{border-color:var(--gold)}.layer[data-l=op].on{background:var(--gold)}
+.layer[data-l=weak]{border-color:var(--coral);color:var(--coral-d)}.layer[data-l=weak].on{background:var(--coral);color:#fff}
+.layer[data-l=strong]{border-color:var(--teal);color:var(--teal)}.layer[data-l=strong].on{background:var(--teal);color:#fff}
+.layer[data-l=link]{border-color:var(--ink)}.layer[data-l=link].on{background:var(--ink);color:#fff}
+.layer[data-l=ex]{border-color:#94A3B8;color:var(--muted)}.layer[data-l=ex].on{background:#94A3B8;color:#fff}
+.layers-all{border-color:var(--line);color:var(--muted)}
+.layers-all:first-of-type{margin-left:auto}
+.essay{background:#fff;border:3px solid var(--line);border-radius:24px;padding:12px 26px;font-size:.95em;line-height:1.44}
+.essay p+p{margin-top:8px}
+.essay .s{border-radius:6px;transition:background .3s,color .3s;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:1px 2px}
+.essay .sn{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 6px;border-radius:999px;background:var(--ink);color:#fff;font-size:22px;font-weight:700;font-style:normal;margin-right:6px;vertical-align:2px;line-height:1}
+.essay.show-op .op{background:var(--gold-t);box-shadow:0 0 0 2px var(--gold)}
+.essay.show-weak .wk{background:var(--coral-t)}
+.essay.show-strong .st{background:var(--teal-t)}
+.essay.show-link .lk{font-weight:700;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+.essay.show-ex .ex{font-style:italic;color:var(--muted)}
+
+/* ---------- flip cards ---------- */
+.flips{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:26px;flex:1}
+.flip{position:relative;perspective:1600px;cursor:pointer;min-height:300px}
+.fi{position:absolute;inset:0;transition:transform .6s;transform-style:preserve-3d}
+.flip.flipped .fi{transform:rotateY(180deg)}
+.ff,.fb{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:26px;padding:24px 30px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.ff{background:var(--coral-t);border:3px solid var(--coral)}
+.fb{background:var(--teal-t);border:3px solid var(--teal);transform:rotateY(180deg)}
+.ff h3{font-size:1.2em;color:var(--coral-d)}.fb h3{font-size:1.2em;color:var(--teal)}
+.ff p{font-size:.95em}.fb p{font-size:1.07em;font-weight:600}
+.ff .turn{margin-top:auto;font-size:.95em;color:var(--muted);text-align:right}
+
+/* ---------- end ---------- */
+.body.endgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:50px;align-items:center}
+.hw{display:flex;flex-direction:column;gap:22px}
+.hwi{display:flex;gap:24px;align-items:center;background:#fff;border:3px solid var(--line);border-radius:24px;padding:22px 28px;font-size:1.07em}
+.hic{flex:none;width:76px;height:76px;border-radius:20px;background:var(--gold-t);display:grid;place-items:center;font-size:40px}
+.muted{color:var(--muted)}
+.endside{display:flex;flex-direction:column;align-items:center;gap:20px}
+.endscale{width:560px}
+.judge-now{font-family:'Lexend',sans-serif;font-weight:700;font-size:2.1em;background:var(--gold);padding:10px 36px;border-radius:999px}
+
+/* ---------- timer ---------- */
+#timer{position:absolute;top:20px;right:28px;z-index:20;display:flex;align-items:center;gap:16px;background:#fff;border:3px solid var(--line);
+  border-radius:26px;padding:12px 14px 12px 20px;box-shadow:0 10px 30px rgba(30,41,59,.08);transition:border-color .3s,box-shadow .3s}
+.tleft{display:flex;flex-direction:column;gap:6px}
+#tDigits{font-family:'Lexend',sans-serif;font-weight:700;font-size:66px;line-height:1;min-width:212px;text-align:center;font-variant-numeric:tabular-nums}
+.tbar{height:8px;border-radius:8px;background:#EEE7DA;overflow:hidden}
+#tProg{display:block;height:100%;width:100%;background:var(--teal);transition:width .25s linear}
+.tcol{display:flex;flex-direction:column;gap:8px}
+.trow{display:flex;gap:8px}
+.tbtn{font-size:24px;font-weight:700;border:2px solid var(--line);background:var(--cream);border-radius:12px;padding:5px 12px;min-width:58px}
+.tbtn:hover{border-color:var(--ink)}
+.tbtn.sel{background:var(--gold-t);border-color:var(--gold)}
+#tPlay{flex:1;background:var(--teal);border-color:var(--teal);color:#fff}
+#timer.running #tDigits{color:var(--teal)}
+#timer.running #tPlay{background:var(--ink);border-color:var(--ink)}
+#timer.warn #tDigits{color:var(--coral);animation:blink 1s infinite}
+#timer.warn #tProg{background:var(--coral)}
+#timer.done{border-color:var(--gold);box-shadow:0 0 0 8px var(--gold-t)}
+#timer.done #tDigits{color:var(--gold-d);animation:blink .8s 5}
+
+/* ---------- bottom bar ---------- */
+#bar{position:absolute;left:0;right:0;bottom:14px;height:82px;display:flex;align-items:center;gap:12px;padding:0 30px;z-index:15}
+.nb{height:62px;min-width:62px;border-radius:16px;border:3px solid var(--line);background:#fff;font-size:26px;font-weight:700;padding:0 18px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:border-color .15s,background .15s}
+.nb:hover{border-color:var(--ink)}
+#prev,#next{font-size:44px;line-height:1;padding:0 0 6px}
+#ansBtn{margin-left:18px;background:var(--gold);border-color:var(--gold);min-width:300px}
+#ansBtn small{font-size:22px;opacity:.7}
+#ansBtn.all{background:var(--teal-t);border-color:var(--teal);color:var(--teal)}
+body.big #bigBtn{background:var(--ink);color:#fff;border-color:var(--ink)}
+#prog{margin-left:auto;font-size:28px;font-weight:600;color:var(--muted)}
+#prog b{color:var(--ink)}
+#segs{position:absolute;left:0;right:0;bottom:0;height:12px;display:flex;gap:3px;z-index:15}
+.seg{flex:1;background:#E6DCCB;transition:background .3s}
+.seg.ps{margin-left:10px}
+.seg.on{background:var(--teal)}.seg.cur{background:var(--gold)}
+
+/* ---------- drawer ---------- */
+#scrim{position:absolute;inset:0;background:rgba(30,41,59,.45);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:30}
+#drawer{position:absolute;top:0;bottom:0;left:0;width:700px;background:#fff;z-index:31;transform:translateX(-102%);transition:transform .3s ease;
+  padding:28px 28px 30px;overflow:auto;display:flex;flex-direction:column}
+body.menu #drawer{transform:none;box-shadow:20px 0 50px rgba(30,41,59,.2)}body.menu #scrim{opacity:1;visibility:visible}
+.dh{display:flex;align-items:center;justify-content:space-between}
+.dh h3{font-size:40px}
+.dpart{font-family:'Lexend',sans-serif;font-weight:700;font-size:26px;color:var(--muted);margin:18px 0 4px}
+.ditem{display:flex;gap:14px;align-items:center;width:100%;text-align:left;font-size:27px;padding:7px 12px;border-radius:12px;border:0;background:none}
+.ditem:hover{background:var(--cream)}
+.ditem.cur{background:var(--gold-t)}
+.ditem .dn{flex:none;width:42px;height:42px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:700;font-size:21px}
+.ditem.cur .dn{background:var(--gold)}
+.keys{margin-top:24px;padding-top:18px;border-top:3px solid var(--line);font-size:24px;color:var(--muted);line-height:1.6}
+.keys kbd{font-family:inherit;font-weight:700;color:var(--ink);background:var(--cream);border:2px solid var(--line);border-radius:8px;padding:0 8px}
+
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="stage">
+<div id="corner" class="mscale" data-tilt="0"></div>
+
+<!-- ================= PART 1 ================= -->
+<section class="slide s-title" data-part="1" data-title="Weigh It Up!" data-tilt="0">
+  <div class="title">
+    <div>
+      <div class="kicker">IELTS Writing Task 2 · My IELTS 1B</div>
+      <h1 class="t1">Weigh It Up!</h1>
+      <div class="t2"><span class="ct">Advantages</span> vs <span class="cc">Disadvantages</span> essays</div>
+      <div class="t3">Today you are the judge.</div>
+    </div>
+    <div class="mscale" id="bigScale" data-tilt="0"></div>
+  </div>
+</section>
+
+<section class="slide" data-part="1" data-title="Two forms of the question" data-tilt="0">
+  <header class="head"><h2>Two forms of the question</h2></header>
+  <div class="body">
+    <div class="split">
+      <div class="panel pt">
+        <div class="ptitle">Form A – Discuss</div>
+        <div class="pq">What are the advantages and disadvantages of …?</div>
+        <div class="pdo">→ Describe both sides.</div>
+        <div class="pill">Opinion NOT required</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="panel pc">
+        <div class="ptitle">Form B – Outweigh</div>
+        <div class="pq">Do the advantages of … outweigh the disadvantages?</div>
+        <div class="pdo">→ Judge which side is bigger.</div>
+        <div class="pill">Opinion REQUIRED</div>
+      </div>
+    </div>
+    <div class="goldnote"><b>outweigh</b> = be more important than <span class="vi">(nặng hơn, quan trọng hơn)</span></div>
+  </div>
+</section>
+
+<section class="slide" data-part="1" data-kind="book" data-title="Task A or Task B?" data-tilt="0">
+  <header class="head"><h2>Task A or Task B?</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">SB p.13 <span>· Exercise 1</span></div>
+      <div class="binst">Look at Tasks A and B. Which task asks for your opinion?</div>
+      <button class="tchip" data-min="2">⏱ 2 minutes · Start</button>
+    </div></div>
+    <div class="answers">
+      <div class="ans rv"><span class="n">A</span><span class="txt">Task A – both sides, <b>no opinion</b> needed</span></div>
+      <div class="ans rv"><span class="n">B</span><span class="txt">Task B – both sides + <b>your opinion</b></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="1" data-kind="book" data-title="Read the task carefully" data-tilt="0">
+  <header class="head"><h2>Read the task carefully</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">WB p.71 <span>· Exercise 1</span></div>
+      <div class="binst">Advantages, disadvantages or both? Do you need to give your opinion?</div>
+      <button class="tchip" data-min="2">⏱ 2 minutes · Start</button>
+    </div></div>
+    <div class="answers">
+      <div class="ans rv"><span class="n">1</span><span class="txt"><b>Both</b></span></div>
+      <div class="ans rv"><span class="n">2</span><span class="txt"><b>Yes</b> – “Do the advantages outweigh the disadvantages?”</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="1" data-kind="extra" data-title="Form A or Form B?" data-tilt="0">
+  <header class="head"><h2>Form A or Form B?</h2></header>
+  <div class="body">
+    <p class="inst"><b>A</b> = discuss (no opinion) · <b>B</b> = outweigh (opinion needed). For B: which side comes first?</p>
+    <div class="abgrid" id="abgrid"></div>
+  </div>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section class="slide" data-part="2" data-title="You are the judge" data-tilt="-1">
+  <header class="head"><h2>You are the judge</h2></header>
+  <div class="body">
+    <p class="inst">Put the two sides on the scale. Which answer is a good choice?</p>
+    <div class="judge3">
+      <div class="jopt"><div class="mscale" data-tilt="-1"></div>
+        <div class="jlab"><span class="ct">Advantages</span><span class="gt">&gt;</span><span class="cc">Disadvantages</span></div>
+        <div class="jnote">The good side is more important.</div>
+        <div class="jmark y rv">✓ Good choice</div></div>
+      <div class="jopt"><div class="mscale" data-tilt="1"></div>
+        <div class="jlab"><span class="cc">Disadvantages</span><span class="gt">&gt;</span><span class="ct">Advantages</span></div>
+        <div class="jnote">The bad side is more important.</div>
+        <div class="jmark y rv">✓ Good choice</div></div>
+      <div class="jopt"><div class="mscale" data-tilt="0"></div>
+        <div class="jlab"><span class="ct">Advantages</span><span class="gt">=</span><span class="cc">Disadvantages</span></div>
+        <div class="jnote">Both sides are equal.</div>
+        <div class="jmark n rv">✗ Looks like no opinion</div></div>
+    </div>
+    <div class="tip">💡 Tip: Choose the side you have more ideas for.</div>
+  </div>
+</section>
+
+<section class="slide" data-part="2" data-title="Check the direction!" data-tilt="-1">
+  <header class="head"><h2>Check the direction!</h2></header>
+  <div class="body">
+    <div class="dirwrap">
+      <div><div class="mscale" data-tilt="-1"></div><div class="cap">You think the good side is bigger.</div></div>
+      <div class="dir">
+        <div class="dq">Do the <span class="fa">advantages</span> outweigh the disadvantages?</div><div class="da yes rv">YES</div>
+        <div class="dq">Do the <span class="fd">disadvantages</span> outweigh the advantages?</div><div class="da no rv">NO</div>
+      </div>
+    </div>
+    <div class="goldnote">Read the question slowly: which side comes <b>first</b>? Then answer YES or NO.</div>
+  </div>
+</section>
+
+<section class="slide" data-part="2" data-kind="book" data-title="Where does your opinion go?" data-tilt="0">
+  <header class="head"><h2>Where does your opinion go?</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">SB p.13 <span>· Exercise 3</span></div>
+      <div class="binst">Where should you give your opinion? Choose a, b, c or d.</div>
+      <button class="tchip" data-min="2">⏱ 2 minutes · Start</button>
+    </div></div>
+    <div class="answers">
+      <div class="ans rv"><span class="n">b</span><span class="txt">in the <b>introduction</b> AND the <b>conclusion</b></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="2" data-kind="book" data-title="What goes in each part?" data-tilt="0">
+  <header class="head"><h2>What goes in each part?</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">WB p.71 <span>· Exercise 2</span></div>
+      <div class="binst">Introduction and conclusion: what goes in? Complete with words from the box.</div>
+      <button class="tchip" data-min="2">⏱ 2 minutes · Start</button>
+    </div></div>
+    <p class="inst">Introduction → gaps 1, 2 · Conclusion → gaps 3, 4</p>
+    <div class="answers row">
+      <div class="ans rv"><span class="n">1</span><span class="txt">paraphrase</span></div>
+      <div class="ans rv"><span class="n">2</span><span class="txt">main</span></div>
+      <div class="ans rv"><span class="n">3</span><span class="txt">summarise</span></div>
+      <div class="ans rv"><span class="n">4</span><span class="txt">opinion</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="2" data-kind="extra" data-title="YES or NO?" data-tilt="0">
+  <header class="head"><h2>YES or NO?</h2></header>
+  <div class="body">
+    <div class="yngrid" id="yngrid"></div>
+  </div>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section class="slide" data-part="3" data-title="Essay structure" data-tilt="-1" data-btn="Build next">
+  <header class="head"><h2>Essay structure</h2></header>
+  <div class="body">
+    <p class="inst">4 paragraphs · at least 250 words · 40 minutes <span class="hint">(click to build)</span></p>
+    <div class="stack">
+      <div class="blk g rv"><div class="bl">Introduction</div><div class="bc"><span><b>Paraphrase</b> the question + <b>your opinion</b></span></div><div class="bs">2–3 sentences</div></div>
+      <div class="blk c rv"><div class="bl">Body 1</div><div class="bc"><span><b>Weaker side</b> · “Admittedly, …” + 1–2 ideas</span></div><div class="bs">4–5 sentences</div></div>
+      <div class="blk t rv"><div class="bl">Body 2</div><div class="bc"><span><b>Stronger side</b> · “However, …” + 2 reasons with examples</span></div><div class="bs">5–6 sentences</div></div>
+      <div class="blk g rv"><div class="bl">Conclusion</div><div class="bc"><span>“Although …, I believe …” · <b>no new ideas</b></span></div><div class="bs">1–2 sentences</div></div>
+      <div class="sfoot rv">Body 1 = “Yes, there is this problem…” → Body 2 = “…but this is much more important.”</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="3" data-kind="book" data-title="Brainstorm and choose" data-tilt="0">
+  <header class="head"><h2>Brainstorm and choose</h2></header>
+  <div class="body">
+    <div class="book slim"><div class="bicon"></div>
+      <div class="binfo"><div class="blabel">📘 Open your book</div><div class="bref">SB p.13 <span>· Ex 4–6</span></div></div>
+      <div class="binst">Brainstorm for Task B. Choose one advantage and one disadvantage. Decide your opinion.</div>
+      <button class="tchip" data-min="5">⏱ 5 min · Start</button>
+    </div>
+    <div class="board">
+      <div class="col t"><h3>Advantages</h3><div class="ed" contenteditable="true" spellcheck="false" data-ph="Click and type ideas…"></div></div>
+      <div class="col c"><h3>Disadvantages</h3><div class="ed" contenteditable="true" spellcheck="false" data-ph="Click and type ideas…"></div></div>
+    </div>
+    <div class="opline"><b>⚖️ Our opinion:</b><div class="ed" contenteditable="true" spellcheck="false" data-ph="Which side is stronger?"></div></div>
+  </div>
+</section>
+
+<section class="slide" data-part="3" data-kind="extra" data-title="Put the plan in order" data-tilt="-1">
+  <header class="head"><h2>Put the plan in order</h2></header>
+  <div class="body">
+    <p class="inst"><b>Do the advantages of working from home outweigh the disadvantages?</b><span class="hint">Click a note, then a paragraph – or drag it.</span></p>
+    <div class="order">
+      <div class="tray">
+        <div class="note" draggable="true" data-n="a"><span class="nl">a</span>However: no travel time → more free time; cheaper (no petrol, no lunch out)</div>
+        <div class="note" draggable="true" data-n="b"><span class="nl">b</span>In conclusion: although some people feel lonely, the benefits are more important</div>
+        <div class="note" draggable="true" data-n="c"><span class="nl">c</span>More people work from home now → I think the advantages are greater</div>
+        <div class="note" draggable="true" data-n="d"><span class="nl">d</span>Admittedly: some workers feel lonely; hard to separate work and home life</div>
+      </div>
+      <div class="pblocks">
+        <div class="pb g rv" data-kind="place" data-n="c"><div class="pl">Introduction</div><div class="pz"></div></div>
+        <div class="pb c rv" data-kind="place" data-n="d"><div class="pl">Body 1</div><div class="pz"></div></div>
+        <div class="pb t rv" data-kind="place" data-n="a"><div class="pl">Body 2</div><div class="pz"></div></div>
+        <div class="pb g rv" data-kind="place" data-n="b"><div class="pl">Conclusion</div><div class="pz"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 4 ================= -->
+<section class="slide" data-part="4" data-title="Useful language" data-tilt="0">
+  <header class="head"><h2>Useful language</h2></header>
+  <div class="body">
+    <div class="pgrid">
+      <div class="pg op"><h3>Give your opinion</h3><div class="two">
+        <p>In my opinion, the advantages of … clearly outweigh the disadvantages.</p>
+        <p>I believe the benefits of … are greater than the drawbacks.</p></div></div>
+      <div class="pg ad"><h3>Advantage</h3><p>One advantage of … is …</p><p>Another benefit is …</p><p>Firstly, …</p></div>
+      <div class="pg di"><h3>Disadvantage</h3><p>Admittedly, …</p><p>One drawback is …</p><p>However, there are some disadvantages to …</p></div>
+      <div class="pg ex"><h3>Example</h3><p>For example, …</p><p>For instance, …</p></div>
+      <div class="pg cn"><h3>Conclusion</h3><div class="two">
+        <p>In conclusion, although …, I believe …</p><p>On balance, …</p></div></div>
+    </div>
+    <div class="wordbank"><span class="wbk-a">advantage = benefit = positive aspect</span><span class="wbk-d">disadvantage = drawback = negative aspect</span></div>
+  </div>
+</section>
+
+<section class="slide" data-part="4" data-kind="book" data-title="Same meaning" data-tilt="0">
+  <header class="head"><h2>Same meaning</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">WB p.71 <span>· Exercise 4</span></div>
+      <div class="binst">Group the words with the same meaning.</div>
+      <button class="tchip" data-min="2">⏱ 2 minutes · Start</button>
+    </div></div>
+    <div class="groups">
+      <div class="grp t"><div class="gh">pro / advantage</div><div class="ans rv"><span class="txt">benefit</span></div></div>
+      <div class="grp g"><div class="gh">to summarise</div><div class="ans rv"><span class="txt">To conclude, In conclusion</span></div></div>
+      <div class="grp c"><div class="gh">con</div><div class="ans rv"><span class="txt">drawback, disadvantages</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="4" data-kind="extra" data-title="Complete the paragraph" data-tilt="-1">
+  <header class="head"><h2>Complete the paragraph</h2></header>
+  <div class="body">
+    <p class="inst"><b>Do the advantages of studying online outweigh the disadvantages?</b><span class="hint">Click a gap to change the word.</span></p>
+    <div class="para">I believe the advantages of studying online
+      <button class="gap rv" data-kind="gap" data-a="outweigh" data-i="0"><span class="gn">1</span><span class="gw">…………</span></button> the disadvantages.
+      <button class="gap rv" data-kind="gap" data-a="Admittedly" data-i="0"><span class="gn">2</span><span class="gw">…………</span></button>, students may feel lonely when they study at home, and some of them find it hard to concentrate.
+      <button class="gap rv" data-kind="gap" data-a="However" data-i="0"><span class="gn">3</span><span class="gw">…………</span></button>, these problems are less important than the benefits.
+      <button class="gap rv" data-kind="gap" data-a="Firstly" data-i="0"><span class="gn">4</span><span class="gw">…………</span></button>, online learning saves time because students do not need to travel to school.
+      <button class="gap rv" data-kind="gap" data-a="Moreover" data-i="0"><span class="gn">5</span><span class="gw">…………</span></button>, they can watch lessons again if they do not understand something.
+      <button class="gap rv" data-kind="gap" data-a="In conclusion" data-i="0"><span class="gn">6</span><span class="gw">…………</span></button>, although online learning has some drawbacks, its benefits are more significant.</div>
+    <div class="gfoot">
+      <div class="bank"><span class="chip">Admittedly</span><span class="chip">However</span><span class="chip">outweigh</span><span class="chip">Firstly</span><span class="chip">Moreover</span><span class="chip">In conclusion</span></div>
+      <button class="cb checkgaps">Check ✓</button>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="4" data-kind="extra" data-title="Change the opinion sentence" data-tilt="1">
+  <header class="head"><h2>Change the opinion sentence</h2></header>
+  <div class="body">
+    <p class="inst">Keep the same meaning – but match the question!</p>
+    <div class="co2">
+      <div class="ccard"><span class="num">1</span><div class="mscale" data-tilt="-1"></div>
+        <div class="lbl">Opinion</div><p>The advantages of tourism outweigh the disadvantages.</p>
+        <div class="lbl">New question</div><p>Do the <span class="kw d on">disadvantages</span> of tourism outweigh the <span class="kw a on">advantages</span>?</p>
+        <div class="ans rv"><span class="txt">The disadvantages of tourism <b>do not</b> outweigh the advantages.</span></div>
+      </div>
+      <div class="ccard"><span class="num">2</span><div class="mscale" data-tilt="1"></div>
+        <div class="lbl">Question</div><p>Do the <span class="kw a on">benefits</span> of using smartphones at school outweigh the <span class="kw d on">drawbacks</span>?</p>
+        <div class="lbl">Student's view</div><p>“The drawbacks are more important.”</p>
+        <div class="lbl">Start with: In my opinion, …</div>
+        <div class="ans rv"><span class="txt">In my opinion, the <b>drawbacks</b> of using smartphones at school outweigh the <b>benefits</b>.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 5 ================= -->
+<section class="slide" data-part="5" data-title="Intro and conclusion checklist" data-tilt="0">
+  <header class="head"><h2>Intro and conclusion checklist</h2></header>
+  <div class="body">
+    <div class="co2">
+      <div class="ck"><h3>A good introduction…</h3><ul>
+        <li class="y">paraphrases the question</li>
+        <li class="y">gives a clear answer: which side is bigger</li>
+        <li class="n">not just “This essay will discuss both sides.”</li></ul></div>
+      <div class="ck"><h3>A good conclusion…</h3><ul>
+        <li class="y">gives the same opinion as the introduction</li>
+        <li class="y">summarises the main points</li>
+        <li class="n">no new ideas</li>
+        <li class="n">not “Both sides are equal.”</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="5" data-kind="book" data-title="Which is better?" data-tilt="0">
+  <header class="head"><h2>Which is better?</h2></header>
+  <div class="body">
+    <div class="book"><div class="bicon"></div><div class="binfo">
+      <div class="blabel">📘 Open your book</div>
+      <div class="bref">SB p.14 <span>· Exercises 1–2</span></div>
+      <div class="binst">Which introduction and which conclusion are better? Why?</div>
+      <button class="tchip" data-min="4">⏱ 4 minutes · Start</button>
+    </div></div>
+    <div class="answers">
+      <div class="ans rv"><span class="n">1</span><span class="txt">Introduction <b>B</b> – clear opinion</span></div>
+      <div class="ans rv"><span class="n">2</span><span class="txt">Conclusion <b>A</b> – clear opinion</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="5" data-kind="book" data-title="How is it paraphrased?" data-tilt="0">
+  <header class="head"><h2>How is it paraphrased?</h2></header>
+  <div class="body">
+    <div class="book slim"><div class="bicon"></div>
+      <div class="binfo"><div class="blabel">📘 Open your book</div><div class="bref">WB p.71 <span>· Exercise 3</span></div></div>
+      <div class="binst">Read the model introduction. How is the question paraphrased? Answer 1–4.</div>
+      <button class="tchip" data-min="4">⏱ 4 min · Start</button>
+    </div>
+    <div class="answers">
+      <div class="ans rv"><span class="n">1</span><span class="txt">“It is thought by some people that”</span></div>
+      <div class="ans rv"><span class="n">2</span><span class="txt">“drawbacks”</span></div>
+      <div class="ans rv"><span class="n">3</span><span class="txt">e.g. most spoken language in the world → <b>on the planet</b> · one day → <b>in future</b></span></div>
+      <div class="ans rv"><span class="n">4</span><span class="txt">Yes</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-part="5" data-kind="extra" data-title="Which one is better? Why?" data-tilt="-1">
+  <header class="head"><h2>Which one is better? Why?</h2></header>
+  <div class="body">
+    <div class="qstrip"><b>Question:</b> More and more people are working from home. Do the advantages of this outweigh the disadvantages?</div>
+    <div class="pairs">
+      <div class="pairh">Introductions – click the better one</div>
+      <div class="pair">
+        <div class="card wb"><span class="wl">A</span><p>More and more people are working from home. There are advantages and disadvantages of this, and they will be discussed in this essay.</p>
+          <div class="tags"><span class="tg">copies the question</span><span class="tg">no opinion</span></div></div>
+        <div class="card wb rv" data-kind="wb" data-good="1"><span class="wl">B</span><p>Nowadays, a growing number of employees do their jobs at home instead of in an office. Although this trend has some drawbacks, I believe its benefits are greater.</p>
+          <div class="tags"><span class="tg good">better ✓</span></div></div>
+      </div>
+      <div class="pairh">Conclusions – click the better one</div>
+      <div class="pair">
+        <div class="card wb"><span class="wl">C</span><p>In conclusion, working from home has good points and bad points. It saves time, but people may feel lonely. Also, companies can save money on offices.</p>
+          <div class="tags"><span class="tg">no opinion</span><span class="tg">new idea</span></div></div>
+        <div class="card wb rv" data-kind="wb" data-good="1"><span class="wl">D</span><p>In conclusion, although working from home can make some people feel lonely, I believe the time and money it saves are more important.</p>
+          <div class="tags"><span class="tg good">better ✓</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 6 ================= -->
+<section class="slide" data-part="6" data-kind="book" data-title="Plan and write" data-tilt="0" data-btn="Tick next">
+  <header class="head"><h2>Plan and write</h2></header>
+  <div class="body">
+    <div class="book slim"><div class="bicon"></div>
+      <div class="binfo"><div class="blabel">📘 Open your book</div><div class="bref">SB p.14 <span>· Ex 3–6</span></div></div>
+      <div class="binst">Plan your answer. Write an introduction and a conclusion.</div>
+      <button class="tchip" data-min="8">⏱ 8 min · Start</button>
+    </div>
+    <div class="warnbar">⚠ Check the question: does it ask about the <span class="ct">ADVANTAGES</span> or the <span class="cc">DISADVANTAGES</span> first?</div>
+    <div class="yt">
+      <div class="plan">
+        <div class="prow g"><div class="pk">Introduction<small>paraphrase + opinion</small></div><div class="ed" contenteditable="true" spellcheck="false"></div></div>
+        <div class="prow c"><div class="pk">Body 1<small>weaker side · Admittedly, …</small></div><div class="ed" contenteditable="true" spellcheck="false"></div></div>
+        <div class="prow t"><div class="pk">Body 2<small>stronger side · However, …</small></div><div class="ed" contenteditable="true" spellcheck="false"></div></div>
+        <div class="prow g"><div class="pk">Conclusion<small>Although …, I believe …</small></div><div class="ed" contenteditable="true" spellcheck="false"></div></div>
+      </div>
+      <div class="cklist"><h3>Read it aloud – check!</h3>
+        <button class="tick rv" data-kind="tick">paraphrased</button>
+        <button class="tick rv" data-kind="tick">YES / NO in the right direction</button>
+        <button class="tick rv" data-kind="tick">clear opinion</button>
+        <button class="tick rv" data-kind="tick">same opinion in the conclusion</button>
+        <button class="tick rv" data-kind="tick">no new ideas</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 7 ================= -->
+<section class="slide" data-part="7" data-title="Model essay X-ray" data-tilt="-1" data-btn="Next layer" data-tag="working from home – do the advantages outweigh?">
+  <header class="head"><h2>Model essay X-ray</h2></header>
+  <div class="body">
+    <div class="layers">
+      <button class="layer rv" data-kind="layer" data-l="op">Opinion<em>2, 15</em></button>
+      <button class="layer rv" data-kind="layer" data-l="weak">Weaker side<em>3–7</em></button>
+      <button class="layer rv" data-kind="layer" data-l="strong">Stronger side<em>8–14</em></button>
+      <button class="layer rv" data-kind="layer" data-l="link">Linking words</button>
+      <button class="layer rv" data-kind="layer" data-l="ex">Examples<em>7, 11</em></button>
+      <button class="layers-all" data-on="1">All</button><button class="layers-all" data-on="0">Clear</button>
+    </div>
+    <div class="essay" id="essay">
+      <p><span class="s"><span class="sn">1</span>Nowadays, a growing number of employees do their jobs at home instead of in an office, especially since the Covid&#8209;19 pandemic.</span> <span class="s op"><span class="sn">2</span><span class="lk">Although</span> this trend has some drawbacks, I believe its benefits are greater.</span></p>
+      <p><span class="s wk"><span class="sn">3</span><span class="lk">Admittedly</span>, working from home can cause some problems.</span> <span class="s wk"><span class="sn">4</span>Some workers feel lonely because they do not see their colleagues every day, and this can make them less motivated.</span> <span class="s wk"><span class="sn">5</span>This is especially true for young people who live alone and have few friends nearby.</span> <span class="s wk"><span class="sn">6</span><span class="lk">In addition</span>, it is often difficult to separate work and home life.</span> <span class="s wk ex"><span class="sn">7</span><span class="lk">For example</span>, many people check their emails late in the evening, so they never really relax and often feel tired the next day.</span></p>
+      <p><span class="s st"><span class="sn">8</span><span class="lk">However</span>, these problems are less important than the advantages.</span> <span class="s st"><span class="sn">9</span><span class="lk">Firstly</span>, working from home saves a lot of time.</span> <span class="s st"><span class="sn">10</span>Employees do not have to travel to the office, so they can spend an extra hour or two with their families, doing exercise or simply resting.</span> <span class="s st ex"><span class="sn">11</span><span class="lk">For instance</span>, a worker who used to spend two hours in traffic every day now has time to cook healthy meals.</span> <span class="s st"><span class="sn">12</span><span class="lk">Secondly</span>, it saves money for both workers and companies.</span> <span class="s st"><span class="sn">13</span>Workers spend less on petrol, bus tickets and lunches, <span class="lk">while</span> companies can rent smaller offices and pay lower electricity bills.</span> <span class="s st"><span class="sn">14</span><span class="lk">Moreover</span>, many people find that they can concentrate better at home because it is quieter than a busy office, so they finish their tasks faster.</span></p>
+      <p><span class="s op"><span class="sn">15</span><span class="lk">In conclusion</span>, <span class="lk">although</span> working from home can make some people feel lonely, I believe the time and money it saves are more important for both employees and employers.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 8 ================= -->
+<section class="slide" data-part="8" data-title="Watch out!" data-tilt="1" data-btn="Flip next">
+  <header class="head"><h2>Watch out!</h2></header>
+  <div class="body">
+    <div class="flips" id="flips"></div>
+  </div>
+</section>
+
+<section class="slide s-end" data-part="8" data-title="Homework" data-tilt="-1">
+  <header class="head"><h2>Homework</h2></header>
+  <div class="body endgrid">
+    <div class="hw">
+      <div class="hwi"><span class="hic">✍️</span><div><b>Write the full essay</b> for SB p.14<br><span class="muted">at least 250 words · 4 paragraphs · 40 minutes</span></div></div>
+      <div class="hwi"><span class="hic">📘</span><div><b>WB p.71</b>, Exercises 5 and 6</div></div>
+      <div class="hwi"><span class="hic">📄</span><div><b>Worksheet:</b> the exercises we did not finish</div></div>
+    </div>
+    <div class="endside"><div class="mscale endscale" data-tilt="-1"></div><div class="judge-now">You're the judge now!</div></div>
+  </div>
+</section>
+
+<!-- ================= CHROME ================= -->
+<div id="timer">
+  <div class="tleft"><div id="tDigits">05:00</div><div class="tbar"><i id="tProg"></i></div></div>
+  <div class="tcol">
+    <div class="trow"><button class="tbtn tpre" data-min="2">2'</button><button class="tbtn tpre" data-min="4">4'</button><button class="tbtn tpre" data-min="5">5'</button><button class="tbtn tpre" data-min="8">8'</button></div>
+    <div class="trow"><button class="tbtn" id="tPlay">▶ Start</button><button class="tbtn" id="tReset" aria-label="Reset timer">↺</button></div>
+  </div>
+</div>
+
+<div id="bar">
+  <button class="nb" id="prev" aria-label="Previous slide">‹</button>
+  <button class="nb" id="next" aria-label="Next slide">›</button>
+  <button class="nb" id="menuBtn">☰ Slides</button>
+  <button class="nb" id="ansBtn">Show answers</button>
+  <button class="nb" id="resetBtn" title="Reset this slide (R)">↺ Reset</button>
+  <button class="nb" id="bigBtn" title="Big text (B)">Aa</button>
+  <button class="nb" id="fsBtn" title="Full screen (F)" aria-label="Full screen">⛶</button>
+  <div id="prog"></div>
+</div>
+<div id="segs"></div>
+
+<div id="scrim"></div>
+<nav id="drawer">
+  <div class="dh"><h3>Slides</h3><button class="nb" id="closeMenu" aria-label="Close">✕</button></div>
+  <div id="dlist"></div>
+  <div class="keys">
+    <kbd>←</kbd> <kbd>→</kbd> <kbd>Space</kbd> move · <kbd>M</kbd> this menu · <kbd>A</kbd> next answer · <kbd>Shift</kbd>+<kbd>A</kbd> all answers ·
+    <kbd>R</kbd> reset slide · <kbd>B</kbd> big text · <kbd>T</kbd> start/pause timer · <kbd>F</kbd> full screen · <kbd>Esc</kbd> stop typing
+  </div>
+</nav>
+</div>
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const PARTS = ['Recognise the question','Be the judge','Plan your essay','Useful language','Introductions and conclusions','Your turn','Model essay X-ray','Wrap-up'];
+const TILT = 14;
+const stage = $('#stage');
+
+/* ---------- balance scale ---------- */
+const scaleSVG = () => `<svg viewBox="0 0 240 200" aria-hidden="true">
+<path d="M78 194h84l-12-18h-60z" fill="#1E293B"/>
+<rect x="116" y="50" width="8" height="130" rx="4" fill="#1E293B"/>
+<g class="beam"><rect x="40" y="44" width="160" height="10" rx="5" fill="#1E293B"/></g>
+<g class="pL"><path d="M0 0L-28 58M0 0L28 58" stroke="#475569" stroke-width="2.5" fill="none"/><path d="M-38 58A38 26 0 0 0 38 58Z" fill="#0F766E"/></g>
+<g class="pR"><path d="M0 0L-28 58M0 0L28 58" stroke="#475569" stroke-width="2.5" fill="none"/><path d="M-38 58A38 26 0 0 0 38 58Z" fill="#E4572E"/></g>
+<circle cx="120" cy="49" r="13" fill="#F2B705" stroke="#1E293B" stroke-width="3"/></svg>`;
+
+function applyTilt(svg, a) {
+  const r = a * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  svg.querySelector('.beam').setAttribute('transform', `rotate(${a.toFixed(2)} 120 49)`);
+  svg.querySelector('.pL').setAttribute('transform', `translate(${(120 - 76 * c).toFixed(2)} ${(49 - 76 * s).toFixed(2)})`);
+  svg.querySelector('.pR').setAttribute('transform', `translate(${(120 + 76 * c).toFixed(2)} ${(49 + 76 * s).toFixed(2)})`);
+  svg._a = a;
+}
+function setTilt(svg, to, anim = true) {
+  if (!svg) return;
+  cancelAnimationFrame(svg._raf);
+  const from = svg._a || 0;
+  if (!anim || Math.abs(to - from) < .01) { applyTilt(svg, to); return; }
+  const t0 = performance.now(), d = 900, c1 = 1.4, c3 = c1 + 1;
+  const step = now => {
+    const p = Math.min(1, (now - t0) / d), q = p - 1;
+    applyTilt(svg, from + (to - from) * (1 + c3 * q * q * q + c1 * q * q));
+    if (p < 1) svg._raf = requestAnimationFrame(step);
+  };
+  svg._raf = requestAnimationFrame(step);
+}
+function fillScale(el) {
+  el.innerHTML = scaleSVG();
+  const svg = el.querySelector('svg');
+  applyTilt(svg, (parseFloat(el.dataset.tilt) || 0) * TILT);
+  return svg;
+}
+const BOOK = `<svg viewBox="0 0 120 100" aria-hidden="true"><path d="M60 20C45 8 22 6 6 10v76c16-4 39-2 54 10 15-12 38-14 54-10V10C98 6 75 8 60 20Z" fill="#1E3A5F"/>
+<path d="M60 20v76" stroke="#FAF7F2" stroke-width="4"/>
+<path d="M16 26c14-3 28-1 36 5M16 40c14-3 28-1 36 5M16 54c14-3 28-1 36 5M68 31c8-6 22-8 36-5M68 45c8-6 22-8 36-5M68 59c8-6 22-8 36-5" stroke="#FAF7F2" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/></svg>`;
+
+/* ---------- generated exercises ---------- */
+const kw = s => s.replace(/\[(a|d|o):([^\]]+)\]/g, '<span class="kw $1">$2</span>');
+const AB = [
+  ['A', '', 'A · describe both sides', 'More and more people are working from home. What are the [a:advantages] and [d:disadvantages] of this?'],
+  ['B', 'adv', 'B · advantages first', 'Many students now study online instead of going to school. Do the [a:advantages] of this [o:outweigh] the [d:disadvantages]?'],
+  ['A', '', 'A · describe both sides', 'Some people prefer to live in big cities. Discuss the [a:advantages] and [d:disadvantages] of city life.'],
+  ['B', 'dis', 'B · disadvantages first', 'Many young people use social media every day. Do the [d:disadvantages] of this [o:outweigh] the [a:advantages]?'],
+  ['B', 'adv', 'B · benefits first', 'Some families take their children abroad on holiday every year. Do the [a:benefits] of this [o:outweigh] the [d:drawbacks]?'],
+  ['B', 'none', 'B · no side first', 'More people are buying electric cars instead of petrol cars. Is this a [a:positive] or a [d:negative] development?']
+];
+const YN = [
+  ['YES', 'a', 'Do the [a:advantages] of online shopping outweigh the [d:disadvantages]?', 'Online shopping is mostly good. It saves time.'],
+  ['NO', 'a', 'Do the [d:disadvantages] of online shopping outweigh the [a:advantages]?', 'Online shopping is mostly good. It saves time.'],
+  ['YES', 'd', 'Do the [d:disadvantages] of living in a big city outweigh the [a:advantages]?', 'City life is too noisy and stressful.'],
+  ['NO', 'd', 'Do the [a:benefits] of learning online outweigh the [d:drawbacks]?', 'Students learn less when they study at home alone.'],
+  ['NO', 'a', 'Do the [d:disadvantages] of international travel outweigh the [a:advantages]?', 'Travel helps people understand other cultures – that is more important than pollution.']
+];
+const FLIPS = [
+  ['Wrong direction', 'The question asks about the disadvantages first, but you answer about the advantages.', 'Check which side comes first. Answer YES or NO clearly.'],
+  ['No clear opinion', '“There are both advantages and disadvantages.”', 'Say which side is bigger: “I believe the advantages are greater.”'],
+  ['Opinion changes', 'The introduction says YES, but the conclusion says NO.', 'Keep the same opinion in the introduction and the conclusion.'],
+  ['Listing ideas', 'Idea, idea, idea… with no explanation.', 'Explain each idea and add an example: “For instance, …”'],
+  ['New idea in the conclusion', 'A new point appears in the last paragraph.', 'Only summarise what you already wrote.'],
+  ['Copying the question', 'The introduction repeats the question word for word.', 'Paraphrase it – use your own words.']
+];
+$('#abgrid').innerHTML = AB.map((c, i) => `<div class="card ab rv" data-kind="ab" data-form="${c[0]}" data-side="${c[1]}" data-label="${c[2]}" data-stage="form">
+  <span class="num">${i + 1}</span><p class="q">${kw(c[3])}</p><div class="res"></div>
+  <div class="r1"><button class="cb pick" data-v="A">A</button><button class="cb pick" data-v="B">B</button></div>
+  <div class="r2"><button class="cb side ta" data-s="adv">Advantages</button><button class="cb side co" data-s="dis">Disadvantages</button><button class="cb side" data-s="none">No side</button></div></div>`).join('');
+$('#yngrid').innerHTML = YN.map((c, i) => `<div class="card yn rv" data-kind="yn" data-ans="${c[0]}" data-side="${c[1]}">
+  <span class="num">${i + 1}</span><p class="q">${kw(c[2])}</p><p class="v">“${c[3]}”</p>
+  <div class="foot"><div class="mscale" data-tilt="0"></div><button class="cb" data-v="YES">YES</button><button class="cb" data-v="NO">NO</button></div></div>`).join('');
+$('#flips').innerHTML = FLIPS.map(c => `<div class="flip rv" data-kind="flip"><div class="fi">
+  <div class="ff"><h3>✗ ${c[0]}</h3><p>${c[1]}</p><div class="turn">click to fix ↻</div></div>
+  <div class="fb"><h3>✓ Do this</h3><p>${c[2]}</p></div></div></div>`).join('');
+
+/* ---------- set up slides ---------- */
+const slides = $$('.slide'), N = slides.length, orig = [];
+function initSlide(s) {
+  $$('.mscale', s).forEach(fillScale);
+  $$('.bicon', s).forEach(b => b.innerHTML = BOOK);
+}
+slides.forEach((s, i) => {
+  const h = $('.head', s);
+  if (h) {
+    const p = +s.dataset.part, tl = document.createElement('div');
+    tl.className = 'tagline';
+    tl.innerHTML = `<span>${s.dataset.tag ? 'Question: ' + s.dataset.tag : `Part ${p} · ${PARTS[p - 1]}`}</span>` +
+      (s.dataset.kind === 'extra' ? '<span class="xtag">✏️ Extra practice</span>' : '');
+    h.prepend(tl);
+  }
+  orig[i] = s.innerHTML;
+  initSlide(s);
+});
+const corner = fillScale($('#corner'));
+
+$('#segs').innerHTML = slides.map((s, i) => `<i class="seg${i && s.dataset.part !== slides[i - 1].dataset.part ? ' ps' : ''}"></i>`).join('');
+let dl = '', lastP = 0;
+slides.forEach((s, i) => {
+  const p = +s.dataset.part;
+  if (p !== lastP) { dl += `<div class="dpart">Part ${p} · ${PARTS[p - 1]}</div>`; lastP = p; }
+  const ic = s.dataset.kind === 'book' ? '📘 ' : s.dataset.kind === 'extra' ? '✏️ ' : '';
+  dl += `<button class="ditem" data-go="${i}"><span class="dn">${i + 1}</span><span>${ic}${s.dataset.title}</span></button>`;
+});
+$('#dlist').innerHTML = dl;
+
+/* ---------- navigation ---------- */
+let cur = 0, rockRaf = 0, endTimer = 0;
+function go(i) {
+  i = Math.max(0, Math.min(N - 1, i));
+  slides[cur].classList.remove('active');
+  cur = i;
+  const s = slides[cur];
+  s.classList.add('active');
+  stage.classList.toggle('on-title', cur === 0);
+  setTilt(corner, (parseFloat(s.dataset.tilt) || 0) * TILT);
+  sel = null;
+  updateBar(); updateAns(); enter(s); closeMenu();
+}
+function enter(s) {
+  cancelAnimationFrame(rockRaf); clearTimeout(endTimer);
+  if (s.classList.contains('s-title')) {
+    const t0 = performance.now();
+    const loop = now => {
+      const svg = $('#bigScale svg', s);
+      if (svg) applyTilt(svg, 12 * Math.sin((now - t0) / 1100));
+      rockRaf = requestAnimationFrame(loop);
+    };
+    rockRaf = requestAnimationFrame(loop);
+  }
+  if (s.classList.contains('s-end')) {
+    const svg = $('.endscale svg', s);
+    applyTilt(svg, TILT);
+    endTimer = setTimeout(() => setTilt(svg, -TILT * 1.15), 450);
+  }
+}
+function updateBar() {
+  const s = slides[cur];
+  $('#prog').innerHTML = `<b>Part ${s.dataset.part}/8</b> · Slide ${cur + 1}/${N}`;
+  $$('.seg').forEach((g, i) => { g.classList.toggle('on', i < cur); g.classList.toggle('cur', i === cur); });
+  $$('.ditem').forEach((d, i) => d.classList.toggle('cur', i === cur));
+}
+const toggleMenu = () => document.body.classList.toggle('menu');
+const closeMenu = () => document.body.classList.remove('menu');
+const toggleBig = () => document.body.classList.toggle('big');
+function toggleFS() {
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
+}
+
+/* ---------- answers ---------- */
+const steps = s => $$('.rv', s);
+const isDone = e => e.classList.contains('done');
+function updateAns() {
+  const s = slides[cur], st = steps(s), b = $('#ansBtn');
+  if (!st.length) { b.style.visibility = 'hidden'; return; }
+  b.style.visibility = 'visible';
+  const d = st.filter(isDone).length, all = d === st.length;
+  b.innerHTML = all ? `✓ All shown <small>${d}/${st.length}</small>` : `${s.dataset.btn || 'Show answers'} <small>${d}/${st.length}</small>`;
+  b.classList.toggle('all', all);
+}
+function reveal(e) {
+  const k = e.dataset.kind;
+  if (k && K[k]) K[k](e); else e.classList.add('shown', 'done');
+}
+let revealingAnswers = false;
+function revealNext() {
+  const e = steps(slides[cur]).find(x => !isDone(x));
+  if (e) {
+    revealingAnswers = true;
+    try { reveal(e); } finally { revealingAnswers = false; }
+    playSound('reveal');
+  }
+  updateAns();
+}
+function revealAll() {
+  const pending = steps(slides[cur]).filter(x => !isDone(x));
+  if (pending.length) {
+    revealingAnswers = true;
+    try { pending.forEach(reveal); } finally { revealingAnswers = false; }
+    playSound('reveal');
+  }
+  updateAns();
+}
+function resetSlide() {
+  const s = slides[cur];
+  s.innerHTML = orig[cur]; initSlide(s); sel = null; updateAns(); enter(s);
+}
+
+/* ---------- feedback ---------- */
+function mark(el, good) {
+  const m = document.createElement('span');
+  m.className = 'mark ' + (good ? 'y' : 'n');
+  m.textContent = good ? '✓' : '✗';
+  el.appendChild(m);
+  if (!good) setTimeout(() => m.remove(), 900);
+}
+function shake(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+function wrong(el) { shake(el); mark(el, false); if (!revealingAnswers) playSound('wrong'); }
+function right(el) { el.classList.add('ok'); if (!el.querySelector(':scope > .mark.y')) mark(el, true); if (!revealingAnswers) playSound('correct'); }
+
+/* ---------- exercise logic ---------- */
+function solveAB(c) {
+  c.classList.add('solved', 'done', 'lit'); c.dataset.stage = 'done';
+  $('.res', c).textContent = '✓ ' + c.dataset.label; right(c);
+}
+function solveYN(c) {
+  c.classList.add('solved', 'done', 'lit');
+  $$('.cb', c).forEach(b => b.classList.toggle('chosen', b.dataset.v === c.dataset.ans));
+  setTilt($('.mscale svg', c), c.dataset.side === 'a' ? -TILT : TILT); right(c);
+}
+let sel = null;
+function placeNote(n) {
+  const s = slides[cur], note = $(`.note[data-n="${n}"]`, s), pb = $(`.pb[data-n="${n}"]`, s);
+  if (!note || !pb) return;
+  note.classList.remove('sel'); note.draggable = false;
+  $('.pz', pb).appendChild(note);
+  pb.classList.add('filled', 'done'); right(pb); sel = null;
+}
+function tryPlace(note, pb) {
+  if (pb.classList.contains('filled')) return;
+  if (note.dataset.n === pb.dataset.n) placeNote(pb.dataset.n);
+  else { wrong(pb); shake(note); }
+  updateAns();
+}
+const OPTS = ['Admittedly', 'However', 'outweigh', 'Firstly', 'Moreover', 'In conclusion'];
+function setGap(g, i) {
+  g.dataset.i = i; $('.gw', g).textContent = i ? OPTS[i - 1] : '…………';
+  g.classList.remove('wrong'); updBank();
+}
+function updBank() {
+  const s = slides[cur], used = $$('.gap', s).map(g => +g.dataset.i).filter(Boolean).map(i => OPTS[i - 1]);
+  $$('.bank .chip', s).forEach(c => c.classList.toggle('used', used.includes(c.textContent)));
+}
+function gapRight(g) { g.classList.add('right', 'done'); }
+function checkGaps() {
+  let correct = 0, incorrect = 0;
+  $$('.gap', slides[cur]).forEach(g => {
+    if (g.classList.contains('right')) return;
+    if (OPTS[+g.dataset.i - 1] === g.dataset.a) { gapRight(g); correct++; }
+    else { g.classList.add('wrong'); shake(g); incorrect++; }
+  });
+  if (correct || incorrect) playSound(incorrect ? 'wrong' : 'correct');
+}
+function solveWB(c) { c.closest('.pair').classList.add('solved'); c.classList.add('done'); right(c); }
+function setLayer(b, on) {
+  $('#essay', slides[cur]).classList.toggle('show-' + b.dataset.l, on);
+  b.classList.toggle('on', on); b.classList.toggle('done', on);
+}
+const K = {
+  ab: solveAB,
+  yn: solveYN,
+  place: pb => placeNote(pb.dataset.n),
+  gap: g => { setGap(g, OPTS.indexOf(g.dataset.a) + 1); gapRight(g); },
+  wb: solveWB,
+  layer: b => setLayer(b, true),
+  flip: f => f.classList.add('flipped', 'done'),
+  tick: t => t.classList.add('ticked', 'done')
+};
+
+/* ---------- timer ---------- */
+const tEl = $('#timer'), dig = $('#tDigits'), tProg = $('#tProg'), tPlay = $('#tPlay');
+let tTotal = 300, tLeft = 300, tRun = false, tEnd = 0, tInt = 0, actx = null;
+function audio() {
+  if (!actx) { try { actx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { actx = null; } }
+  if (actx && actx.state === 'suspended') actx.resume();
+  return actx;
+}
+function chime() {
+  const a = audio(); if (!a) return;
+  [659.25, 783.99, 1046.5].forEach((f, i) => {
+    const o = a.createOscillator(), g = a.createGain(), t = a.currentTime + i * .22;
+    o.type = 'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.16, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + 1.5);
+    o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + 1.6);
+  });
+}
+/* ---------- playful interaction sounds (generated in-browser; no audio files needed) ---------- */
+function soundNote(a, hz, when, length, volume, wave = 'sine', endHz = hz) {
+  const osc = a.createOscillator(), gain = a.createGain();
+  osc.type = wave;
+  osc.frequency.setValueAtTime(hz, when);
+  osc.frequency.exponentialRampToValueAtTime(Math.max(1, endHz), when + length);
+  gain.gain.setValueAtTime(0.0001, when);
+  gain.gain.exponentialRampToValueAtTime(volume, when + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, when + length);
+  osc.connect(gain); gain.connect(a.destination);
+  osc.start(when); osc.stop(when + length + 0.015);
+}
+function playSound(kind) {
+  const a = audio(); if (!a) return;
+  const t = a.currentTime + 0.01;
+  if (kind === 'click') {
+    soundNote(a, 680, t, 0.085, 0.025, 'sine', 430); // soft cartoon pop
+  } else if (kind === 'reveal') {
+    [523.25, 659.25, 783.99, 1046.5].forEach((hz, i) =>
+      soundNote(a, hz, t + i * 0.092, 0.24, 0.09, 'sine')); // magical answer sparkle
+  } else if (kind === 'correct') {
+    soundNote(a, 659.25, t, 0.15, 0.065, 'sine');
+    soundNote(a, 987.77, t + 0.115, 0.32, 0.08, 'sine'); // happy two-note ding
+  } else if (kind === 'wrong') {
+    soundNote(a, 370, t, 0.18, 0.065, 'triangle', 245);
+    soundNote(a, 290, t + 0.105, 0.17, 0.04, 'sine', 200); // friendly cartoon boing
+  }
+}
+function tRender() {
+  const m = Math.floor(tLeft / 60), s = tLeft % 60;
+  dig.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  tProg.style.width = (tTotal ? 100 * tLeft / tTotal : 0) + '%';
+  tEl.classList.toggle('warn', tRun && tLeft <= 10 && tLeft > 0);
+  tPlay.textContent = tRun ? '❚❚ Pause' : '▶ Start';
+  $$('.tpre', tEl).forEach(b => b.classList.toggle('sel', +b.dataset.min * 60 === tTotal));
+}
+function tPause() { tRun = false; clearInterval(tInt); tEl.classList.remove('running', 'warn'); tRender(); }
+function tSet(m) { tPause(); tTotal = tLeft = m * 60; tEl.classList.remove('done'); tRender(); }
+function tStart() {
+  audio();
+  if (tLeft <= 0) tLeft = tTotal;
+  tEl.classList.remove('done'); tRun = true; tEnd = Date.now() + tLeft * 1000;
+  clearInterval(tInt); tInt = setInterval(tTick, 200); tEl.classList.add('running'); tRender();
+}
+function tTick() {
+  tLeft = Math.max(0, Math.ceil((tEnd - Date.now()) / 1000));
+  if (tLeft === 0) { tPause(); tEl.classList.add('done'); chime(); }
+  tRender();
+}
+function tReset() { tPause(); tLeft = tTotal; tEl.classList.remove('done'); tRender(); }
+const tToggle = () => tRun ? tPause() : tStart();
+tRender();
+
+/* ---------- clicks ---------- */
+stage.addEventListener('click', e => {
+  // Answer reveals have their own sound; every other click gets a light pop.
+  if (!e.target.closest('#ansBtn, .stack')) playSound('click');
+}, true);
+stage.addEventListener('click', e => {
+  const t = e.target, s = slides[cur];
+  const btn = t.closest('button'); if (btn) setTimeout(() => btn.blur(), 0);
+  let x;
+  if (t.id === 'scrim' || t.closest('#closeMenu')) return closeMenu();
+  if ((x = t.closest('[data-go]'))) return go(+x.dataset.go);
+  if (t.closest('#prev')) return go(cur - 1);
+  if (t.closest('#next')) return go(cur + 1);
+  if (t.closest('#menuBtn')) return toggleMenu();
+  if (t.closest('#ansBtn')) return e.shiftKey ? revealAll() : revealNext();
+  if (t.closest('#resetBtn')) return resetSlide();
+  if (t.closest('#bigBtn')) return toggleBig();
+  if (t.closest('#fsBtn')) return toggleFS();
+  if (t.closest('#tPlay')) return tToggle();
+  if (t.closest('#tReset')) return tReset();
+  if ((x = t.closest('.tpre'))) return tSet(+x.dataset.min);
+  if ((x = t.closest('.tchip'))) { tSet(+x.dataset.min); return tStart(); }
+
+  if ((x = t.closest('.ab .pick'))) {
+    const c = x.closest('.ab'); if (c.dataset.stage !== 'form') return;
+    if (x.dataset.v === c.dataset.form) {
+      if (c.dataset.form === 'A') solveAB(c);
+      else { c.dataset.stage = 'side'; $('.res', c).textContent = 'B ✓ – which side comes first?'; }
+    } else wrong(c);
+    return updateAns();
+  }
+  if ((x = t.closest('.ab .side'))) {
+    const c = x.closest('.ab'); if (c.dataset.stage !== 'side') return;
+    if (x.dataset.s === c.dataset.side) solveAB(c); else wrong(c);
+    return updateAns();
+  }
+  if ((x = t.closest('.yn .cb'))) {
+    const c = x.closest('.yn'); if (c.classList.contains('solved')) return;
+    if (x.dataset.v === c.dataset.ans) solveYN(c); else wrong(c);
+    return updateAns();
+  }
+  if ((x = t.closest('.tray .note'))) {
+    if (sel === x) { x.classList.remove('sel'); sel = null; }
+    else { if (sel) sel.classList.remove('sel'); sel = x; x.classList.add('sel'); }
+    return;
+  }
+  if ((x = t.closest('.pb'))) { if (sel) tryPlace(sel, x); return; }
+  if ((x = t.closest('.gap'))) { if (!x.classList.contains('right')) setGap(x, (+x.dataset.i + 1) % (OPTS.length + 1)); return; }
+  if (t.closest('.checkgaps')) { checkGaps(); return updateAns(); }
+  if ((x = t.closest('.wb'))) {
+    const p = x.closest('.pair'); if (p.classList.contains('solved')) return;
+    if (x.dataset.good) solveWB(x); else wrong(x);
+    return updateAns();
+  }
+  if ((x = t.closest('.layer'))) { setLayer(x, !x.classList.contains('on')); return updateAns(); }
+  if ((x = t.closest('.layers-all'))) { $$('.layer', s).forEach(b => setLayer(b, x.dataset.on === '1')); return updateAns(); }
+  if ((x = t.closest('.flip'))) { x.classList.toggle('flipped'); x.classList.toggle('done', x.classList.contains('flipped')); return updateAns(); }
+  if ((x = t.closest('.tick'))) { x.classList.toggle('ticked'); x.classList.toggle('done', x.classList.contains('ticked')); return updateAns(); }
+  if (t.closest('.stack')) return revealNext();
+});
+stage.addEventListener('contextmenu', e => {
+  const g = e.target.closest && e.target.closest('.gap'); if (!g) return;
+  e.preventDefault();
+  if (!g.classList.contains('right')) setGap(g, (+g.dataset.i + OPTS.length) % (OPTS.length + 1));
+});
+
+/* ---------- drag & drop (plan order) ---------- */
+const el = e => (e.target.nodeType === 1 ? e.target : e.target.parentElement);
+stage.addEventListener('dragstart', e => {
+  const n = el(e).closest('.tray .note'); if (!n) return;
+  if (sel) sel.classList.remove('sel');
+  sel = n; n.classList.add('sel');
+  e.dataTransfer.setData('text/plain', n.dataset.n); e.dataTransfer.effectAllowed = 'move';
+});
+stage.addEventListener('dragover', e => {
+  const pb = el(e).closest('.pb');
+  if (pb && !pb.classList.contains('filled')) { e.preventDefault(); pb.classList.add('over'); }
+});
+stage.addEventListener('dragleave', e => { const pb = el(e).closest('.pb'); if (pb && !pb.contains(e.relatedTarget)) pb.classList.remove('over'); });
+stage.addEventListener('drop', e => {
+  const pb = el(e).closest('.pb'); if (!pb) return;
+  e.preventDefault(); pb.classList.remove('over');
+  if (sel) tryPlace(sel, pb);
+});
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown', e => {
+  const t = e.target;
+  if (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) { if (e.key === 'Escape') t.blur(); return; }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); go(cur + 1); return; }
+  if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(cur - 1); return; }
+  if (k === 'Home') return go(0);
+  if (k === 'End') return go(N - 1);
+  switch (k.toLowerCase()) {
+    case 'm': toggleMenu(); break;
+    case 'a': e.shiftKey ? revealAll() : revealNext(); break;
+    case 'b': toggleBig(); break;
+    case 'r': resetSlide(); break;
+    case 'f': toggleFS(); break;
+    case 't': tToggle(); break;
+    case 'escape': closeMenu(); break;
+  }
+});
+
+/* ---------- fit to screen ---------- */
+function fit() { stage.style.setProperty('--s', Math.min(innerWidth / 1920, innerHeight / 1080)); }
+addEventListener('resize', fit); fit();
+slides[0].classList.add('active');
+go(0);
+})();
+</script>
+</body>
+</html>
